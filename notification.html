@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+
+        }
+        .button button{
+            margin: 20px;
+            height: 38px;
+            width: 60px;
+            border-radius: 10px;
+            color: white;
+            background-color: rgb(12, 17, 17);
+            cursor: pointer;
+        }
+        .button button:hover{
+            background-color: white;
+            color: black;
+        }
+        #toastbox{
+            position: absolute;
+            bottom: 30px;
+            right: 30px; 
+        }
+        .toast{
+            height: 40px;
+            width: 200px;
+            border: 2px solid rgb(0, 0, 0);
+            margin: 10px;
+           font-weight: 800;
+           border-radius: 20px;
+           padding:10px;
+           box-shadow: 2px 2px 2px gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="button">
+        <button onclick="showToast(successmsg)" >Success</button>
+        <button onclick="showToast(errormsg)">Error</button>
+        <button onclick="showToast(invaildmsg)">Invaild</button>
+    </div>
+    <div id="toastbox">
+         
+    </div>
+
+    <script>
+        const toastbox=document.getElementById("toastbox")
+        const successmsg='Successfully Submit'
+        const errormsg='Somthing Went Wrong !'
+        const invaildmsg='Please Enter vaild input'
+
+        function showToast(msg) {
+            const toast=document.createElement('div')
+            toast.classList.add('toast')
+            toast.innerHTML=msg
+            toastbox.appendChild(toast)
+            setTimeout(() => {
+                toastbox.removeChild(toast)
+            }, 3000);
+        }
+        
+    </script>
+</body>
+</html>
